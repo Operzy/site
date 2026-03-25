@@ -29,25 +29,25 @@ export default function Hero() {
       // AI Node Laser Scanner Animation
       gsap.fromTo('.laser-scan', 
         { top: '0%' }, 
-        { top: '100%', duration: 2, ease: 'sine.inOut', yoyo: true, repeat: -1 }
+        { top: '100%', duration: 4, ease: 'sine.inOut', yoyo: true, repeat: -1 }
       );
 
       // AI Node Line flowing animation
       gsap.to('.data-line', {
         strokeDashoffset: -20,
-        duration: 1,
+        duration: 3,
         ease: 'linear',
         repeat: -1
       });
 
       // AI Box Hover Breaths
       gsap.to('.ai-node', {
-        y: '-=5',
-        duration: 2,
+        y: '-=6',
+        duration: 4,
         yoyo: true,
         repeat: -1,
         ease: 'sine.inOut',
-        stagger: 0.2
+        stagger: 0.4
       });
     }, containerRef);
     return () => ctx.revert();
@@ -145,27 +145,25 @@ export default function Hero() {
               </svg>
 
               {/* Input Node 1 */}
-              <div className="ai-node absolute top-[50px] left-0 w-[100px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary/30 mr-2 animate-pulse"></div>
-                  <div className="h-2 w-10 bg-secondary/10 rounded-full"></div>
+              <div className="ai-node absolute top-[50px] left-[-20px] w-[130px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
+                  <div className="w-2 h-2 rounded-full bg-primary/30 mr-3 animate-pulse"></div>
+                  <span className="text-[10px] font-bold text-slate-700 tracking-wider">ONBOARDING</span>
               </div>
 
               {/* Input Node 2 */}
-              <div className="ai-node absolute top-[250px] left-0 w-[100px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary/30 mr-2 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                  <div className="h-2 w-8 bg-secondary/10 rounded-full"></div>
+              <div className="ai-node absolute top-[250px] left-[-20px] w-[130px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
+                  <div className="w-2 h-2 rounded-full bg-primary/30 mr-3 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                  <span className="text-[10px] font-bold text-slate-700 tracking-wider">REPORTING</span>
               </div>
 
               {/* API Logic Block */}
-              <div className="ai-node absolute top-[30px] left-[180px] w-[140px] h-[55px] bg-white border border-border rounded-xl shadow-lg p-3 flex flex-col justify-center z-0 transition-transform">
+              <div className="ai-node absolute top-[30px] left-[170px] w-[150px] h-[55px] bg-white border border-border rounded-xl shadow-lg p-3 flex flex-col justify-center z-0 transition-transform">
                   <div className="flex items-center mb-1.5">
-                      <span className="text-xs font-bold text-[#0F172A] mr-1.5 opacity-60 font-mono">if (</span>
-                      <div className="w-12 h-[4px] bg-accent-green/70 rounded-full"></div>
-                      <span className="text-xs font-bold text-[#0F172A] ml-1.5 opacity-60 font-mono">) {'{'}</span>
+                      <span className="text-[10px] font-bold text-[#0F172A] opacity-70 font-mono">execute_task()</span>
                   </div>
-                  <div className="flex items-center ml-4">
-                      <div className="w-2 h-2 rounded-full bg-accent-green mr-1.5 shadow-[0_0_8px_#A3E635]"></div>
-                      <div className="h-[5px] w-16 bg-primary/10 rounded-full"></div>
+                  <div className="flex items-center ml-2">
+                      <div className="w-2 h-2 rounded-full bg-accent-green mr-2 shadow-[0_0_8px_#A3E635]"></div>
+                      <div className="h-[4px] w-16 bg-primary/10 rounded-full"></div>
                   </div>
               </div>
 
@@ -187,10 +185,11 @@ export default function Hero() {
               </div>
 
               {/* Output Status Node */}
-              <div className="ai-node absolute top-[140px] right-0 w-[80px] h-[55px] bg-white border border-accent-green/50 rounded-xl shadow-lg flex items-center justify-center z-10 bg-accent-green/5 transition-transform">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <div className="ai-node absolute top-[140px] right-[-30px] w-[100px] h-[55px] bg-white border border-accent-green/50 rounded-xl shadow-lg flex flex-col items-center justify-center z-10 bg-accent-green/5 transition-transform">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mb-1">
                       <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
+                  <span className="text-[9px] font-bold text-slate-800 tracking-widest font-mono">DELIVERY</span>
               </div>
 
               {/* Autopilot Badge */}
