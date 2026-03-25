@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Right Column - Mockup Cluster */}
         <div 
-          className="relative lg:h-[700px] flex items-center lg:justify-end"
+          className="hidden lg:flex relative lg:h-[700px] items-center lg:justify-end"
           onMouseEnter={() => handleMockupHover(true)}
           onMouseLeave={() => handleMockupHover(false)}
         >
