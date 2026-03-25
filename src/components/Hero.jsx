@@ -81,11 +81,11 @@ export default function Hero() {
             Done-For-You Agency Automation
           </div>
           
-          <h1 className="hero-reveal flex flex-col items-start mb-8 w-full">
-            <span className="font-sans font-extrabold text-[clamp(1.875rem,3vw,3rem)] leading-[1.1] tracking-tight text-primary-text mb-1">
+          <h1 className="hero-reveal flex flex-col items-start mb-4 w-full">
+            <span className="font-sans font-extrabold text-[clamp(1.875rem,3vw,3rem)] leading-[1.1] tracking-tight text-primary-text mb-0">
               Build an Agency Engineered to
             </span>
-            <span className="font-drama italic text-[clamp(2.75rem,5.5vw,5rem)] leading-[0.95] tracking-tight text-accent-green pr-4" style={{ filter: 'drop-shadow(0px 4px 12px rgba(163,230,53,0.15))' }}>
+            <span className="font-drama italic text-[clamp(3.5rem,7vw,6.5rem)] leading-[0.9] tracking-tight text-accent-green pr-4 mt-2" style={{ filter: 'drop-shadow(0px 4px 12px rgba(163,230,53,0.15))' }}>
               Scale Without You.
             </span>
           </h1>
