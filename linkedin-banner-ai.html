@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operzy LinkedIn Banner - STATIC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Cormorant+Garamond:ital,wght@1,700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/modern-screenshot"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#F8FAFC',
+                        primary: '#0F172A',
+                        secondary: '#334155',
+                        accent: '#A3E635',
+                        border: '#E5E7EB',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        drama: ['"Cormorant Garamond"', 'serif'],
+                        mono: ['"IBM Plex Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CRITICAL: Removed all padding/margins locally so that structural integrity is ironclad */
+        body { margin: 0; padding: 0; background-color: #F8FAFC; width: 1584px; height: 396px; overflow: hidden; }
+        #banner-wrapper { width: 1584px; height: 396px; margin: 0; padding: 0; }
+        
+        #banner {
+            width: 1584px;
+            height: 396px;
+            background-color: #F8FAFC;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.05);
+        }
+
+        .noise {
+            position: absolute; inset: 0; pointer-events: none; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='black' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 10;
+        }
+
+        .glow-blob { position: absolute; width: 600px; height: 600px; background: #A3E635; filter: blur(100px); opacity: 0.15; border-radius: 50%; top: -100px; right: -100px; z-index: 0; }
+        .glow-text { text-shadow: 0px 8px 16px rgba(163,230,53,0.3); }
+
+        .download-btn {
+            position: fixed; top: 10px; left: 10px; z-index: 9999;
+            padding: 16px 40px; background-color: #0F172A; color: #A3E635;
+            font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 18px; border-radius: 999px;
+            cursor: pointer; border: border border-[#334155]; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.5); transition: transform 0.2s, background-color 0.2s; display: flex; align-items: center;
+        }
+        .download-btn:hover { transform: scale(1.03); background-color: #1E293B; }
+    </style>
+</head>
+<body>
+
+    <div id="banner-wrapper">
+        <div id="banner" data-html2canvas-ignore="true"> <!-- Engine ignores download-btn if we target #banner anyway -->
+            <div class="noise"></div>
+            <div class="glow-blob"></div>
+
+            <!-- CTA Button -->
+            <!-- Placed specifically in the top left so it visually hovers precisely over the user's real LinkedIn Profile Picture -->
+            <div class="absolute top-[30px] left-[40px] flex items-center bg-[#1E293B] text-white px-7 py-3.5 rounded-full shadow-2xl border-[1.5px] border-[#334155] z-20">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="mr-3.5" stroke="#A3E635" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span class="font-bold text-[20px] tracking-tight" style="font-family: 'Plus Jakarta Sans', sans-serif;">Take AI Readiness Assessment</span>
+            </div>
+
+            <!-- MATHEMATICALLY BULLETPROOF LAYOUT -->
+            <!-- Font explicitly declared inline to assist the new extraction engine -->
+            <div class="absolute top-0 bottom-0 left-[450px] flex flex-col justify-center z-20 w-[900px]">
+                
+                <div style="height: 60px; display: flex; flex-direction: column; justify-content: flex-end; overflow: visible;">
+                    <span class="font-extrabold tracking-tight text-primary whitespace-nowrap" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 52px; line-height: 52px; margin-bottom: 5px;">
+                        Build an Agency Engineered to
+                    </span>
+                </div>
+                
+                <!-- Shrunk container height slightly from 150 to 125 so empty padding doesn't push the block off-center -->
+                <div style="height: 125px; display: flex; flex-direction: column; justify-content: center; overflow: visible;">
+                    <span class="italic font-bold tracking-tight text-accent glow-text whitespace-nowrap" style="font-family: 'Cormorant Garamond', serif; font-size: 114px; line-height: 114px; margin-left: -6px;">
+                        Scale Without You.
+                    </span>
+                </div>
+
+                <!-- Shrunk container height from 50 to 20 so the bottom isn't artificially padded -->
+                <div style="height: 20px; display: flex; align-items: center; margin-top: 15px;">
+                    <div class="w-2.5 h-2.5 rounded-full bg-accent mr-3 shadow-[0_0_8px_rgba(163,230,53,0.8)]"></div>
+                    <span class="text-secondary relative" style="font-family: 'IBM Plex Mono', monospace; font-size: 17px; line-height: 18px; letter-spacing: 0.18em;">
+                        WE INSTALL CUSTOM AI-NATIVE OPERATING SYSTEMS
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- AI & Automation Processing Nodes -->
+            <!-- Wrapped Graphic in a full-height centered Flexbox to guarantee flawless Y-axis horizontal alignment -->
+            <div class="absolute right-[40px] top-0 bottom-0 flex flex-col justify-center z-10 opacity-95">
+                <div class="relative w-[320px] h-[260px]" style="transform: scale(0.85); transform-origin: right center;">
+                
+                    <!-- SVG Wireframe Connections -->
+                    <svg class="absolute inset-0 w-full h-full z-0 drop-shadow-sm" fill="none" stroke="#65A30D" stroke-opacity="0.8" stroke-width="3.5">
+                        <path d="M 60 50 L 100 50 L 140 100" stroke-linecap="round" stroke-dasharray="0 8"/>
+                        <path d="M 60 210 L 100 210 L 140 160" stroke-linecap="round" stroke-dasharray="0 8"/>
+                        <path d="M 220 130 L 270 130" stroke-linecap="round" stroke-dasharray="0 8"/>
+                    </svg>
+
+                    <div class="absolute top-[35px] left-0 w-[80px] h-[30px] bg-white border border-border rounded-md shadow-sm flex items-center px-2 z-10">
+                        <div class="w-2 h-2 rounded-full bg-primary/20 mr-2"></div>
+                        <div class="h-1.5 w-8 bg-secondary/10 rounded-full"></div>
+                    </div>
+
+                    <div class="absolute top-[195px] left-0 w-[80px] h-[30px] bg-white border border-border rounded-md shadow-sm flex items-center px-2 z-10">
+                        <div class="w-2 h-2 rounded-full bg-primary/20 mr-2"></div>
+                        <div class="h-1.5 w-6 bg-secondary/10 rounded-full"></div>
+                    </div>
+
+                    <div class="absolute top-[20px] left-[150px] w-[110px] h-[45px] bg-white border border-border rounded-lg shadow-sm p-2 flex flex-col justify-center z-0">
+                        <div class="flex items-center mb-1">
+                            <span class="text-[10px] font-bold text-[#0F172A] mr-1 opacity-60" style="font-family: 'IBM Plex Mono', monospace;">if (</span>
+                            <div class="w-10 h-[3px] bg-accent/70 rounded-full"></div>
+                            <span class="text-[10px] font-bold text-[#0F172A] ml-1 opacity-60" style="font-family: 'IBM Plex Mono', monospace;">) {</span>
+                        </div>
+                        <div class="flex items-center ml-3">
+                            <div class="w-1.5 h-1.5 rounded-full bg-accent mr-1"></div>
+                            <div class="h-[4px] w-12 bg-primary/20 rounded-full border border-primary/5"></div>
+                        </div>
+                    </div>
+
+                    <!-- Central AI Logic Core -->
+                    <div class="absolute top-[80px] left-[120px] w-[100px] h-[100px] bg-[#0F172A] border-[1.5px] border-[#334155] rounded-2xl shadow-[0_15px_30px_rgba(163,230,53,0.15)] flex items-center justify-center z-20 overflow-hidden">
+                        <div class="absolute top-[25px] w-full h-[2px] bg-accent/60 shadow-[0_0_10px_#A3E635]"></div>
+                        <div class="w-[70px] h-[70px] rounded-full border border-accent/20 flex items-center justify-center">
+                            <div class="w-[45px] h-[45px] rounded-full border border-accent/40 flex items-center justify-center bg-accent/10">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-accent drop-shadow-[0_0_5px_rgba(163,230,53,0.6)]" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3L14.5 9.5L21 12L14.5 14.5L12 21L9.5 14.5L3 12L9.5 9.5L12 3Z" fill="rgba(163,230,53,0.5)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-[110px] right-0 w-[60px] h-[40px] bg-white border border-accent/50 rounded-lg shadow-sm flex items-center justify-center z-10 bg-accent/5">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65A30D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+
+                    <div class="absolute bottom-[20px] left-[110px] bg-[#1E293B] rounded-full px-3 py-1 flex items-center border border-[#334155] z-30 shadow-md">
+                        <div class="w-2 h-2 rounded-full bg-accent mr-2 shadow-[0_0_5px_rgba(163,230,53,0.8)]"></div>
+                        <span class="text-[10px] text-white font-bold tracking-[0.2em]" style="font-family: 'IBM Plex Mono', monospace;">AUTOPILOT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadBanner() {
+            const btn = document.getElementById('renderBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Rendering Engine Engaged...';
+            
+            // Replaced html2canvas/dom-to-image with modern-screenshot (superior font embedding)
+            modernScreenshot.domToPng(document.querySelector('#banner'), {
+                scale: 2,
+                backgroundColor: '#F8FAFC',
+                fontEmbedCSS: true
+            }).then(dataUrl => {
+                const link = document.createElement('a');
+                link.download = 'Operzy-Premium-LinkedIn-Banner.png';
+                link.href = dataUrl;
+                link.click();
+                btn.innerHTML = originalText;
+            }).catch(err => {
+                console.error("Export failed:", err);
+                btn.innerHTML = originalText;
+                alert("Render failed. The browser sandbox is blocking the export script.");
+            });
+        }
+    </script>
+</body>
+</html>
