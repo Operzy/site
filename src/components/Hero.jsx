@@ -25,6 +25,30 @@ export default function Hero() {
         ease: 'sine.inOut',
         stagger: 0.5
       });
+
+      // AI Node Laser Scanner Animation
+      gsap.fromTo('.laser-scan', 
+        { top: '0%' }, 
+        { top: '100%', duration: 2, ease: 'sine.inOut', yoyo: true, repeat: -1 }
+      );
+
+      // AI Node Line flowing animation
+      gsap.to('.data-line', {
+        strokeDashoffset: -20,
+        duration: 1,
+        ease: 'linear',
+        repeat: -1
+      });
+
+      // AI Box Hover Breaths
+      gsap.to('.ai-node', {
+        y: '-=5',
+        duration: 2,
+        yoyo: true,
+        repeat: -1,
+        ease: 'sine.inOut',
+        stagger: 0.2
+      });
     }, containerRef);
     return () => ctx.revert();
   }, []);
@@ -107,51 +131,75 @@ export default function Hero() {
         >
           <div 
             ref={mockupRef}
-            className="hero-reveal relative w-full aspect-square md:aspect-auto lg:h-[600px] lg:w-[110%] bg-white rounded-xlarge border border-border shadow-2xl overflow-hidden transform-gpu"
-            style={{ transform: 'rotateY(-5deg) rotateX(2deg) scale(0.95)' }}
+            className="hero-reveal relative flex items-center justify-center w-full lg:h-[600px] lg:w-[110%] transform-gpu"
+            style={{ transform: 'rotateY(-5deg) rotateX(2deg)' }}
           >
-            {/* Minimal Dashboard Mockup Design Inside */}
-            <div className="absolute inset-0 bg-alternate-background p-6 flex flex-col gap-4">
-              {/* Header bar */}
-              <div className="flex items-center justify-between border-b border-border pb-4">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-border"></div>
-                  <div className="w-3 h-3 rounded-full bg-border"></div>
-                  <div className="w-3 h-3 rounded-full bg-border"></div>
-                </div>
-                <div className="w-32 h-6 bg-white rounded-full border border-border"></div>
+            {/* The AI Node Graph from Banner (Scaled & Animated for React) */}
+            <div className="relative w-[400px] h-[350px] scale-[0.8] sm:scale-100 lg:scale-125 xl:scale-150 origin-center filter drop-shadow-2xl">
+              
+              {/* SVG Wireframe Connections */}
+              <svg className="absolute inset-0 w-full h-full z-0 drop-shadow-[0_0_8px_rgba(163,230,53,0.3)]" fill="none" stroke="#65A30D" strokeOpacity="0.6" strokeWidth="2.5">
+                  <path className="data-line" d="M 80 70 L 130 70 L 170 140" strokeLinecap="round" strokeDasharray="4 6"/>
+                  <path className="data-line" d="M 80 270 L 130 270 L 170 200" strokeLinecap="round" strokeDasharray="4 6"/>
+                  <path className="data-line" d="M 260 170 L 330 170" strokeLinecap="round" strokeDasharray="4 6"/>
+              </svg>
+
+              {/* Input Node 1 */}
+              <div className="ai-node absolute top-[50px] left-0 w-[100px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary/30 mr-2 animate-pulse"></div>
+                  <div className="h-2 w-10 bg-secondary/10 rounded-full"></div>
               </div>
 
-              {/* Grid content */}
-              <div className="grid grid-cols-3 gap-4 h-full">
-                <div className="col-span-2 row-span-2 bg-white rounded-2xl border border-border p-5 flex flex-col justify-between shadow-sm relative overflow-hidden">
-                   <div className="w-full h-8 bg-alternate-background rounded-lg mb-4 w-1/2"></div>
-                   <div className="flex-1 border-l-2 border-dashed border-border ml-4 relative">
-                     <div className="absolute -left-[11px] top-4 w-5 h-5 bg-accent-green rounded-full flex items-center justify-center ring-4 ring-white shadow-sm"></div>
-                     <div className="absolute -left-[11px] bottom-10 w-5 h-5 bg-cool-ui-tint rounded-full flex items-center justify-center ring-4 ring-white shadow-sm"></div>
-                     <div className="w-full h-12 bg-alternate-background rounded-xl ml-6 mt-1 mb-8"></div>
-                     <div className="w-full h-12 bg-alternate-background rounded-xl ml-6 absolute bottom-6"></div>
-                   </div>
-                </div>
-                <div className="col-span-1 bg-white rounded-2xl border border-border shadow-sm p-4 relative overflow-hidden">
-                   <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-glow-color/40 blur-[40px] rounded-full"></div>
-                   <div className="w-10 h-10 rounded-full bg-soft-green mb-3 flex items-center justify-center"><Zap className="w-5 h-5 text-accent-hover" /></div>
-                   <div className="w-20 h-4 bg-alternate-background rounded-full mb-2"></div>
-                   <div className="w-12 h-3 bg-border rounded-full"></div>
-                </div>
-                <div className="col-span-1 bg-[#0F172A] rounded-2xl shadow-lg p-5 flex flex-col justify-between transform -translate-y-2 hover:translate-y-0 transition-transform cursor-pointer group">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-accent-green rounded-full animate-pulse"></div>
-                    <span className="font-mono text-[10px] text-white/70">AI_EXECUTION</span>
-                  </div>
-                  <div>
-                    <div className="text-white text-lg leading-tight mb-2 font-semibold">Running Automation...</div>
-                    <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
-                      <div className="w-2/3 h-full bg-accent-green rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
+              {/* Input Node 2 */}
+              <div className="ai-node absolute top-[250px] left-0 w-[100px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary/30 mr-2 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                  <div className="h-2 w-8 bg-secondary/10 rounded-full"></div>
               </div>
+
+              {/* API Logic Block */}
+              <div className="ai-node absolute top-[30px] left-[180px] w-[140px] h-[55px] bg-white border border-border rounded-xl shadow-lg p-3 flex flex-col justify-center z-0 transition-transform">
+                  <div className="flex items-center mb-1.5">
+                      <span className="text-xs font-bold text-[#0F172A] mr-1.5 opacity-60 font-mono">if (</span>
+                      <div className="w-12 h-[4px] bg-accent-green/70 rounded-full"></div>
+                      <span className="text-xs font-bold text-[#0F172A] ml-1.5 opacity-60 font-mono">) {'{'}</span>
+                  </div>
+                  <div className="flex items-center ml-4">
+                      <div className="w-2 h-2 rounded-full bg-accent-green mr-1.5 shadow-[0_0_8px_#A3E635]"></div>
+                      <div className="h-[5px] w-16 bg-primary/10 rounded-full"></div>
+                  </div>
+              </div>
+
+              {/* Central AI Logic Core */}
+              <div className="absolute top-[100px] left-[140px] w-[140px] h-[140px] bg-[#0F172A] border-[2px] border-[#334155] rounded-3xl shadow-[0_20px_40px_rgba(163,230,53,0.2)] flex items-center justify-center z-20 overflow-hidden isolation-auto">
+                  {/* Laser Scanner Line */}
+                  <div className="laser-scan absolute left-0 w-full h-[3px] bg-accent-green shadow-[0_0_15px_3px_#A3E635] z-30"></div>
+                  
+                  <div className="w-[100px] h-[100px] rounded-full border-[1.5px] border-accent-green/30 flex items-center justify-center relative">
+                      {/* Rotating ring */}
+                      <div className="absolute inset-0 rounded-full border border-dashed border-accent-green/50 animate-[spin_8s_linear_infinite]"></div>
+                      
+                      <div className="w-[60px] h-[60px] rounded-full border-2 border-accent-green/60 flex items-center justify-center bg-accent-green/10 relative z-10">
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-accent-green drop-shadow-[0_0_8px_rgba(163,230,53,0.8)]" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M12 3L14.5 9.5L21 12L14.5 14.5L12 21L9.5 14.5L3 12L9.5 9.5L12 3Z" fill="rgba(163,230,53,0.4)"/>
+                          </svg>
+                      </div>
+                  </div>
+              </div>
+
+              {/* Output Status Node */}
+              <div className="ai-node absolute top-[140px] right-0 w-[80px] h-[55px] bg-white border border-accent-green/50 rounded-xl shadow-lg flex items-center justify-center z-10 bg-accent-green/5 transition-transform">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+              </div>
+
+              {/* Autopilot Badge */}
+              <div className="absolute bottom-[20px] left-[130px] bg-[#1E293B] rounded-full px-4 py-1.5 flex items-center border border-[#334155] z-30 shadow-xl overflow-hidden group">
+                  <div className="absolute inset-0 bg-accent-green/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-accent-green mr-2 shadow-[0_0_8px_rgba(163,230,53,1)] animate-pulse relative z-10"></div>
+                  <span className="text-xs text-white font-bold tracking-[0.25em] font-mono relative z-10">AUTOPILOT</span>
+              </div>
+
             </div>
           </div>
         </div>
