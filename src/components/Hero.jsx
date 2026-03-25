@@ -146,14 +146,22 @@ export default function Hero() {
 
               {/* Input Node 1 */}
               <div className="ai-node absolute top-[50px] left-[-20px] w-[130px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
-                  <div className="w-2 h-2 rounded-full bg-primary/30 mr-3 animate-pulse"></div>
-                  <span className="text-[10px] font-bold text-slate-700 tracking-wider">ONBOARDING</span>
+                  <div className="w-5 h-5 rounded-full bg-accent-green/10 flex items-center justify-center mr-2 shrink-0 border border-accent-green/30">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-700 tracking-wider pt-px">ONBOARDING</span>
               </div>
 
               {/* Input Node 2 */}
-              <div className="ai-node absolute top-[250px] left-[-20px] w-[130px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform">
-                  <div className="w-2 h-2 rounded-full bg-primary/30 mr-3 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                  <span className="text-[10px] font-bold text-slate-700 tracking-wider">REPORTING</span>
+              <div className="ai-node absolute top-[250px] left-[-20px] w-[130px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform" style={{ animationDelay: '0.4s' }}>
+                  <div className="w-5 h-5 rounded-full bg-accent-green/10 flex items-center justify-center mr-2 shrink-0 border border-accent-green/30">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-700 tracking-wider pt-px">REPORTING</span>
               </div>
 
               {/* API Logic Block */}
@@ -185,11 +193,13 @@ export default function Hero() {
               </div>
 
               {/* Output Status Node */}
-              <div className="ai-node absolute top-[140px] right-[-30px] w-[100px] h-[55px] bg-white border border-accent-green/50 rounded-xl shadow-lg flex flex-col items-center justify-center z-10 bg-accent-green/5 transition-transform">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mb-1">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span className="text-[9px] font-bold text-slate-800 tracking-widest font-mono">DELIVERY</span>
+              <div className="ai-node absolute top-[150px] right-[-40px] w-[130px] h-[40px] bg-white border border-border rounded-lg shadow-md flex items-center px-3 z-10 transition-transform" style={{ animationDelay: '0.8s' }}>
+                  <div className="w-5 h-5 rounded-full bg-accent-green/10 flex items-center justify-center mr-2 shrink-0 border border-accent-green/30">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#65A30D" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-700 tracking-wider pt-px">DELIVERY</span>
               </div>
 
               {/* Autopilot Badge */}
