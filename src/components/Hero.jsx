@@ -85,7 +85,7 @@ export default function Hero() {
             <span className="font-sans font-extrabold text-[clamp(1.875rem,3vw,3rem)] leading-[1.1] tracking-tight text-primary-text mb-0">
               Build an Agency Engineered to
             </span>
-            <span className="font-drama italic text-[clamp(3.5rem,7vw,6.5rem)] leading-[0.9] tracking-tight text-accent-green pr-4 mt-2" style={{ filter: 'drop-shadow(0px 4px 12px rgba(163,230,53,0.15))' }}>
+            <span className="font-drama italic text-[clamp(2.8rem,5.5vw,5.5rem)] leading-[0.9] tracking-tight text-accent-green pr-4 mt-2 whitespace-nowrap" style={{ filter: 'drop-shadow(0px 4px 12px rgba(163,230,53,0.15))' }}>
               Scale Without You.
             </span>
           </h1>
