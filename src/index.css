@@ -3,59 +3,135 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bg-color: 255 255 255; /* #FFFFFF */
-    --text-primary: 15 23 42; /* #0F172A */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    background: #080b0a;
   }
 
   body {
-    @apply bg-background text-[#0F172A] font-sans antialiased;
-    scrollbar-width: thin;
-    scrollbar-color: #E5E7EB #FFFFFF;
+    @apply bg-canvas text-text font-sans;
+    font-feature-settings: 'ss01' 1, 'cv05' 1;
   }
 
-  /* Noise Overlay Filter Requirement */
-  body::after {
-    content: "";
-    @apply fixed inset-0 pointer-events-none z-[9999];
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    mix-blend-mode: overlay;
+  ::selection {
+    background: #3ecf8e;
+    color: #06120c;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 md:px-10;
+  }
+
+  /* Small tracked kicker above a section title. */
+  .kicker {
+    @apply font-mono text-[11px] font-medium uppercase tracking-label text-text-dim;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5
+           font-sans text-[13.5px] font-medium
+           transition-all duration-300 ease-out;
+  }
+
+  .btn-mint {
+    @apply btn bg-mint text-canvas hover:bg-mint-bright hover:shadow-glow;
+  }
+
+  .btn-light {
+    @apply btn bg-text text-canvas hover:bg-white;
+  }
+
+  .btn-outline {
+    @apply btn border border-line-strong bg-transparent text-text
+           hover:border-mint/60 hover:bg-mint/5 hover:text-mint;
+  }
+
+  /* Card surface used across sections */
+  .panel {
+    @apply rounded-lg border border-line bg-surface;
   }
 }
 
 @layer utilities {
-  .clip-path-bg {
-    clip-path: inset(0 0 0 0 round 1.5rem);
+  /* Faint dashed grid, echoing an engineering drawing */
+  .grid-faint {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 120px 120px;
+  }
+
+  /* Radial mint bloom used behind hero + CTA */
+  .bloom {
+    background: radial-gradient(ellipse at center, rgba(62, 207, 142, 0.16) 0%, transparent 65%);
+  }
+
+  .text-gradient-mint {
+    background: linear-gradient(96deg, #3ecf8e 0%, #7ee8b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Edge fade for the marquee logo rail */
+  .fade-x {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 }
 
-/* Micro-Interactions Requirement for buttons */
-.btn-magnetic {
-  @apply relative inline-flex items-center justify-center overflow-hidden transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
-  /* Background color sliding transition effect handled via span */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-.btn-magnetic:hover {
-  transform: scale(1.03);
+.animate-marquee {
+  animation: marquee 38s linear infinite;
 }
 
-.btn-mask {
-  @apply absolute inset-0 z-0 bg-accent-hover transition-transform duration-500 origin-bottom scale-y-0 group-hover:scale-y-100;
-}
-
-.link-hover {
-  @apply inline-block transition-transform duration-300;
-}
-.link-hover:hover {
-  transform: translateY(-1px);
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }
