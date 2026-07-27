@@ -215,22 +215,37 @@ export default function ServicePage() {
             <span className="kicker">Other services</span>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {others.map((o) => (
-              <Link
-                key={o.slug}
-                to={o.href}
-                data-reveal
-                className="group flex items-start justify-between gap-4 rounded-lg border border-line bg-surface px-6 py-5 transition-colors duration-300 hover:border-mint/40"
-              >
-                <div>
-                  <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-text">
-                    {o.name}
-                  </span>
-                  <p className="mt-1 text-[13.5px] leading-[1.6] text-text-muted">{o.blurb}</p>
-                </div>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-text-dim transition-colors group-hover:text-mint" />
-              </Link>
-            ))}
+            {others.map((o) => {
+              const inner = (
+                <>
+                  <div>
+                    <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-text">
+                      {o.name}
+                    </span>
+                    <p className="mt-1 text-[13.5px] leading-[1.6] text-text-muted">{o.blurb}</p>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-text-dim transition-colors group-hover:text-mint" />
+                </>
+              );
+              const cardCls =
+                'group flex items-start justify-between gap-4 rounded-lg border border-line bg-surface px-6 py-5 transition-colors duration-300 hover:border-mint/40';
+              return o.external ? (
+                <a
+                  key={o.slug}
+                  href={o.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-reveal
+                  className={cardCls}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <Link key={o.slug} to={o.href} data-reveal className={cardCls}>
+                  {inner}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

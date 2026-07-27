@@ -12,6 +12,12 @@ import {
   Network,
   RefreshCw,
   BarChart3,
+  Brain,
+  Database,
+  Search,
+  MessageSquare,
+  Lock,
+  Plug,
 } from 'lucide-react';
 
 /**
@@ -29,7 +35,8 @@ export const SERVICE_LINKS = [
     slug: 'ai-audit',
     name: 'AI Audit',
     blurb: 'A fixed look at what your AI is doing, costing and risking.',
-    href: '/services/ai-audit',
+    href: 'https://audit.operzy.com',
+    external: true,
   },
   {
     slug: 'ai-enablement',
@@ -42,6 +49,12 @@ export const SERVICE_LINKS = [
     name: 'Automations',
     blurb: 'Your repetitive processes, built to run end to end.',
     href: '/services/automations',
+  },
+  {
+    slug: 'company-brain',
+    name: 'Company Brain',
+    blurb: "All of your company's knowledge, in one AI you can ask.",
+    href: '/services/company-brain',
   },
 ];
 
@@ -163,6 +176,65 @@ export const SERVICES = {
       title: 'Find the process worth',
       accent: 'automating first.',
       lede: 'A short call to find where your team loses the most time to repetitive work, and what automating it is worth.',
+    },
+  },
+
+  'company-brain': {
+    slug: 'company-brain',
+    name: 'Company Brain',
+    seo: {
+      title: 'Company Brain, Your Knowledge in One AI | Operzy',
+      description:
+        "Operzy builds your company brain, a central AI layer over your documents, data and systems, so your team gets instant, sourced answers instead of digging through drives, threads and someone's memory.",
+    },
+    hero: {
+      title: 'Everything your company knows,',
+      accent: 'in one brain.',
+      lede: "Right now your company's knowledge lives in drives, inboxes, chat threads and a few people's heads. A company brain is a central AI layer over all of it, your documents, data and systems, so anyone can ask a question and get an accurate, sourced answer in seconds instead of hunting for an hour or interrupting the one person who knows.",
+    },
+    overview: {
+      kicker: 'What goes into it',
+      title: 'The pieces of a brain',
+      accent: 'you can trust.',
+      lede: 'A company brain is only useful if the answers are right, current and safe. That takes more than pointing a chatbot at a folder.',
+      items: [
+        { icon: Database, title: 'Knowledge foundation', body: 'Your documents, wikis, drives and records connected and kept in sync, so the brain always works from the current version, not a stale copy.' },
+        { icon: Search, title: 'Answers with sources', body: 'Every answer cites where it came from, so your team can verify in one click instead of taking it on faith.' },
+        { icon: MessageSquare, title: 'Ask it anywhere', body: 'Available where your team already works, chat, email or a simple search bar, no new tool to remember to open.' },
+        { icon: Lock, title: 'Permissions that hold', body: 'People only get answers from what they are allowed to see. HR files stay with HR, financials stay with finance.' },
+        { icon: Plug, title: 'Connected to your systems', body: 'Beyond documents, the brain can read from your CRM, project tools and databases, so answers reflect what is actually happening.' },
+        { icon: Brain, title: 'It keeps learning', body: 'New documents, decisions and corrections flow in as they happen, so the brain gets sharper the longer it runs.' },
+      ],
+    },
+    process: {
+      kicker: 'How it works',
+      title: 'Four steps to a company',
+      accent: 'that remembers everything.',
+      lede: 'We start with the knowledge your team reaches for most, prove the answers hold up, then widen the net.',
+      steps: [
+        { n: '01', title: 'Map your knowledge', window: 'Phase one', body: 'Where the knowledge actually lives, which of it matters, who should see what, and the questions your team asks most.' },
+        { n: '02', title: 'Build the foundation', window: 'Phase two', body: 'We connect the sources, structure the knowledge, and set the permission boundaries, reviewed with your IT and leadership before anything goes live.' },
+        { n: '03', title: 'Prove the answers', window: 'Phase three', body: 'A pilot group asks it real questions and we measure accuracy against the source material, tuning until the answers are ones you would stand behind.' },
+        { n: '04', title: 'Roll out & grow', window: 'Ongoing', body: 'The whole team gets access, new sources get added, and we keep monitoring quality as your company and its knowledge change.' },
+      ],
+    },
+    deliverables: {
+      title: 'Institutional knowledge that',
+      accent: 'stops walking out the door.',
+      lede: 'A working system your team uses daily, not a science project.',
+      items: [
+        'One place to ask anything about your company and get a sourced answer',
+        'Your documents, drives and systems connected and kept current',
+        'Permissions enforced, people only see what they should',
+        'Onboarding that takes days instead of months',
+        'Answers that survive when your most experienced people leave',
+        'A foundation your assistants and automations can build on',
+      ],
+    },
+    cta: {
+      title: 'See what your company brain',
+      accent: 'would know on day one.',
+      lede: 'A short call to map where your knowledge lives today, and what having it all in one place would change.',
     },
   },
 };

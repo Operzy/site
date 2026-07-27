@@ -66,7 +66,13 @@ export default function Footer() {
                           {label}
                         </Link>
                       ) : (
-                        <a href={sectionHref(href)} className={cls}>
+                        <a
+                          href={sectionHref(href)}
+                          className={cls}
+                          {...(href.startsWith('http')
+                            ? { target: '_blank', rel: 'noopener noreferrer' }
+                            : {})}
+                        >
                           {label}
                         </a>
                       )}

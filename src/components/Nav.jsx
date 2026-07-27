@@ -117,17 +117,31 @@ function NavDropdown({ config, active }) {
                 <div className="my-1 h-px bg-line" />
               </>
             )}
-            {config.items.map((i) => (
-              <Link
-                key={i.slug}
-                to={i.href}
-                onClick={() => setOpen(false)}
-                className="block rounded-md px-3 py-2.5 transition-colors hover:bg-surface-2"
-              >
-                <span className="text-[13.5px] font-medium text-text">{i.name}</span>
-                <p className="mt-0.5 text-[12px] leading-snug text-text-dim">{i.blurb}</p>
-              </Link>
-            ))}
+            {config.items.map((i) =>
+              i.external ? (
+                <a
+                  key={i.slug}
+                  href={i.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-md px-3 py-2.5 transition-colors hover:bg-surface-2"
+                >
+                  <span className="text-[13.5px] font-medium text-text">{i.name}</span>
+                  <p className="mt-0.5 text-[12px] leading-snug text-text-dim">{i.blurb}</p>
+                </a>
+              ) : (
+                <Link
+                  key={i.slug}
+                  to={i.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-md px-3 py-2.5 transition-colors hover:bg-surface-2"
+                >
+                  <span className="text-[13.5px] font-medium text-text">{i.name}</span>
+                  <p className="mt-0.5 text-[12px] leading-snug text-text-dim">{i.blurb}</p>
+                </Link>
+              )
+            )}
           </div>
         </div>
       )}
@@ -241,16 +255,29 @@ export default function Nav() {
                     <span className="font-display text-[17px] text-text">{d.label}</span>
                   )}
                   <div className="mt-3 flex flex-col gap-2 pl-4">
-                    {d.items.map((i) => (
-                      <Link
-                        key={i.slug}
-                        to={i.href}
-                        onClick={() => setOpen(false)}
-                        className="text-[14.5px] text-text-muted transition-colors hover:text-mint"
-                      >
-                        {i.name}
-                      </Link>
-                    ))}
+                    {d.items.map((i) =>
+                      i.external ? (
+                        <a
+                          key={i.slug}
+                          href={i.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setOpen(false)}
+                          className="text-[14.5px] text-text-muted transition-colors hover:text-mint"
+                        >
+                          {i.name}
+                        </a>
+                      ) : (
+                        <Link
+                          key={i.slug}
+                          to={i.href}
+                          onClick={() => setOpen(false)}
+                          className="text-[14.5px] text-text-muted transition-colors hover:text-mint"
+                        >
+                          {i.name}
+                        </Link>
+                      )
+                    )}
                   </div>
                 </div>
               );
