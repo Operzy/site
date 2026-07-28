@@ -34,23 +34,23 @@ export default function Hero() {
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-mint" />
           </span>
           <span className="text-[12.5px] font-medium text-text-muted">
-            AI systems, designed, deployed and operated
+            Discovery · Implementation · Partnership
           </span>
         </div>
 
         <h1 className="max-w-5xl font-display text-[clamp(2.6rem,6.2vw,4.75rem)] font-medium leading-[1.05] tracking-[-0.035em] text-text">
           <span className="block overflow-hidden pb-[0.08em]">
-            <span className="h-line block">We don't just automate tasks.</span>
+            <span className="h-line block">We don't just build AI.</span>
           </span>
           <span className="block overflow-hidden pb-[0.08em]">
-            <span className="h-line block text-gradient-mint">We take the whole process off your hands.</span>
+            <span className="h-line block text-gradient-mint">We transform how your business runs.</span>
           </span>
         </h1>
 
         <p className="h-fade mt-8 max-w-2xl text-[16.5px] leading-[1.75] text-text-muted">
-          We find the processes quietly eating your organisation's week, then design, build and run
-          the AI systems that handle them, inside your own cloud, connected to the systems you
-          already run, and measured against what they actually save you.
+          For businesses whose growth keeps turning into headcount. One partner for the whole arc:
+          we find what is worth transforming, build the systems and train your team, then stay on
+          to run and extend it, measured against what it actually saves you.
         </p>
 
         <div className="h-fade mt-11 flex flex-wrap items-center justify-center gap-4">

@@ -14,11 +14,11 @@ import { useLayoutEffect } from 'react';
 export const SITE_URL = 'https://operzy.com';
 
 const DEFAULTS = {
-  title: 'Operzy: AI & Automation Systems',
+  title: 'Operzy: AI Transformation Partner',
   description:
-    "Operzy builds AI and automation systems that take over the processes your team is drowning in, the reading, sorting, chasing and double-checking. Connected to the tools you already use.",
+    'Operzy is an AI transformation partner for established businesses. Discovery, audit and roadmap; implementation, builds and training; then a long-term partnership to run and extend what we build.',
   ogDescription:
-    "We build AI and automation systems that take the busywork off your team's plate.",
+    'One partner for the whole AI transformation: discovery, implementation, and the long-term partnership after launch.',
 };
 
 function upsertMeta(attr, key, content) {

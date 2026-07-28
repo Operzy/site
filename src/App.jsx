@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Thesis from './components/Thesis';
 import Capabilities from './components/Capabilities';
+import ServicesOverview from './components/ServicesOverview';
 import Architecture from './components/Architecture';
 import Engagement from './components/Engagement';
 import Results from './components/Results';
@@ -24,6 +25,7 @@ function Home() {
       <Hero />
       <Thesis />
       <Capabilities />
+      <ServicesOverview />
       <Architecture />
       <Engagement />
       <Results />

@@ -47,8 +47,8 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Wordmark />
             <p className="mt-6 max-w-xs text-[14px] leading-[1.75] text-text-muted">
-              An AI and automation studio. We build the systems that take the busywork off your
-              team's plate.
+              An AI transformation partner. We find what is worth changing, build it with your
+              team, and stay on to run it.
             </p>
           </div>
 

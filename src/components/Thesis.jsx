@@ -3,8 +3,8 @@ import { useReveal } from '../lib/reveal';
 
 const STATEMENTS = [
   {
-    dim: 'You bought the tools. Ran the pilot. Sat through the demos.',
-    bright: 'And the work still lands on the same people it always did.',
+    dim: 'As your business grew, so did the admin, the follow-ups, the double-checking.',
+    bright: 'And so far, the only fix has been more people.',
   },
 ];
 
@@ -33,16 +33,17 @@ export default function Thesis() {
 
         <div data-reveal className="mx-auto mt-16 max-w-2xl border-t border-line pt-12">
           <p className="text-[16px] leading-[1.8] text-text-muted">
-            The hard part was never the AI. It is the connections between systems, the awkward edge
-            cases, and keeping the whole thing accurate once real volume hits it.{' '}
+            AI is how you break that cycle, and the hard part of it was never the AI itself. It is
+            the connections between systems, the awkward edge cases, and keeping the whole thing
+            accurate once real volume hits it.{' '}
             <span className="text-text">That is the part we do.</span> And if a process is not worth
             automating yet, we would rather tell you early than sell you a project.
           </p>
 
           <p data-reveal className="mt-7 text-[15px] leading-[1.8] text-text-dim">
-            We do this for independent operators and for teams inside large, regulated organisations.
-            The method does not change with the size of the company, only the number of systems it
-            has to survive contact with.
+            We work with established businesses, the stage where volume is real, every process has
+            people behind it, and a slow week has a number attached. At that point the question is
+            not whether AI can help. It is which process to hand over first.
           </p>
         </div>
       </div>
